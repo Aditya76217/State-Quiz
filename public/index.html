@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which State Am I? | Indian State Quiz</title>
+    <meta name="description" content="Test your knowledge of India's diverse states and union territories with fun quizzes, rapid-fire rounds, and an interactive state explorer. Learn fascinating facts about all 36 states and UTs!">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Which State Am I? | Indian State Quiz">
+    <meta property="og:description" content="Test your knowledge of India's diverse states and union territories with fun quizzes, rapid-fire rounds, and an interactive state explorer.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Which State Am I?">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Decorative Glowing Background Blobs -->
+    <div class="blob-container" aria-hidden="true">
+        <div class="blob blob-saffron"></div>
+        <div class="blob blob-purple"></div>
+        <div class="blob blob-green"></div>
+    </div>
+
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <!-- Header -->
+    <header role="banner">
+        <div class="header-content">
+            <a class="logo" href="#home">
+                <h1>🇮🇳 Which State Am I?</h1>
+            </a>
+            <nav role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#home" data-view="home">🏠 Home</a></li>
+                    <li><a href="#quiz-setup" data-view="quiz-setup">🎮 Play</a></li>
+                    <li><a href="#explorer" data-view="explorer">🔍 Explorer</a></li>
+                    <li><a href="#leaderboard" data-view="leaderboard">🏆 Leaderboard</a></li>
+                    <li id="nav-auth-item"><a href="#login" data-view="login">🔑 Login</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+
+        <!-- Home View -->
+        <section id="home" class="view active">
+            <div class="hero-section">
+                <h2 class="hero-title">Which State Am I?</h2>
+                <p class="hero-tagline">Test your knowledge of India's diverse states!</p>
+            </div>
+
+            <div class="mode-cards">
+                <div class="mode-card" data-mode="classic" tabindex="0" role="button">
+                    <div class="mode-icon">🎯</div>
+                    <h3 class="mode-title">Classic Quiz</h3>
+                    <p class="mode-description">Take your time with 10 questions and earn points for each correct answer. Perfect for learning!</p>
+                </div>
+                <div class="mode-card" data-mode="rapid" tabindex="0" role="button">
+                    <div class="mode-icon">⚡</div>
+                    <h3 class="mode-title">Rapid Fire</h3>
+                    <p class="mode-description">15 seconds per question — think fast! Race against the clock and test your reflexes.</p>
+                </div>
+                <div class="mode-card" data-mode="explorer" tabindex="0" role="button">
+                    <div class="mode-icon">🗺️</div>
+                    <h3 class="mode-title">State Explorer</h3>
+                    <p class="mode-description">Browse and discover fascinating facts about every Indian state and union territory.</p>
+                </div>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">36</span>
+                    <span class="stat-label">States &amp; UTs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Clues</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Game Modes</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login / Register View -->
+        <section id="login" class="view">
+            <div class="auth-container">
+                <!-- Login Card -->
+                <div class="auth-card" id="login-card">
+                    <h2>Welcome Back</h2>
+                    <p class="auth-subtitle">Login to save your scores and see live players!</p>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="login-username">Username</label>
+                            <input type="text" id="login-username" placeholder="Enter username" required autocomplete="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" placeholder="Enter password" required autocomplete="current-password">
+                        </div>
+                        <button type="submit" class="auth-submit-btn">Login</button>
+                    </form>
+                    <p class="auth-toggle">Don't have an account? <a href="#" id="to-register-btn">Register here</a></p>
+                </div>
+
+                <!-- Register Card (Hidden by default) -->
+                <div class="auth-card hidden" id="register-card">
+                    <h2>Create Account</h2>
+                    <p class="auth-subtitle">Join the competition and track your geography skills!</p>
+                    <form id="register-form">
+                        <div class="form-group">
+                            <label for="register-username">Username</label>
+                            <input type="text" id="register-username" placeholder="Choose a username" required minlength="3" maxlength="20" autocomplete="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Password</label>
+                            <input type="password" id="register-password" placeholder="Choose a password (min 6 characters)" required minlength="6" autocomplete="new-password">
+                        </div>
+                        <button type="submit" class="auth-submit-btn">Register</button>
+                    </form>
+                    <p class="auth-toggle">Already have an account? <a href="#" id="to-login-btn">Login here</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Setup View -->
+        <section id="quiz-setup" class="view">
+            <h2 id="setup-mode-title">🎯 Classic Quiz</h2>
+
+            <div class="difficulty-selector">
+                <input type="radio" id="diff-easy" name="difficulty" value="easy">
+                <label for="diff-easy">Easy</label>
+
+                <input type="radio" id="diff-medium" name="difficulty" value="medium" checked>
+                <label for="diff-medium">Medium</label>
+
+                <input type="radio" id="diff-hard" name="difficulty" value="hard">
+                <label for="diff-hard">Hard</label>
+
+                <input type="radio" id="diff-mixed" name="difficulty" value="mixed">
+                <label for="diff-mixed">Mixed</label>
+            </div>
+
+            <div class="player-input">
+                <label for="player-name">Your Name</label>
+                <input type="text" id="player-name" placeholder="Enter your name" autocomplete="name">
+            </div>
+
+            <button id="start-quiz-btn">Start Quiz</button>
+        </section>
+
+        <!-- Quiz View -->
+        <section id="quiz" class="view">
+            <div class="quiz-header">
+                <span id="question-counter">Question 1 / 10</span>
+                <span id="quiz-score">Score: 0</span>
+                <div class="timer-container" id="timer-container">
+                    <svg viewBox="0 0 64 64" width="64" height="64">
+                        <circle cx="32" cy="32" r="28" fill="none" stroke-width="4" opacity="0.2"></circle>
+                        <circle id="timer-ring" cx="32" cy="32" r="28" fill="none" stroke-width="4" stroke-linecap="round" transform="rotate(-90 32 32)"></circle>
+                    </svg>
+                    <span id="timer-text">15</span>
+                </div>
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <div class="clue-card" id="clue-card">
+                <div class="clue-badge-row">
+                    <span class="clue-badge" id="clue-type-badge">Clue</span>
+                </div>
+                <div class="clue-text" id="clue-text"></div>
+                <div class="hint-clues" id="hint-clues"></div>
+            </div>
+
+            <div class="options-grid" id="options-grid">
+                <!-- Options populated by JavaScript -->
+            </div>
+
+            <button id="hint-btn" class="hint-btn">💡 Get a Hint</button>
+
+            <div class="fun-fact" id="fun-fact" style="display:none"></div>
+        </section>
+
+        <!-- Results View -->
+        <section id="results" class="view">
+            <h2>Quiz Complete!</h2>
+
+            <div class="score-circle">
+                <span id="final-score" class="final-score-number">0</span>
+            </div>
+
+            <div class="results-stats">
+                <div class="result-stat-card" id="stat-correct">
+                    <span class="result-stat-value">0</span>
+                    <span class="result-stat-label">Correct</span>
+                </div>
+                <div class="result-stat-card" id="stat-wrong">
+                    <span class="result-stat-value">0</span>
+                    <span class="result-stat-label">Wrong</span>
+                </div>
+                <div class="result-stat-card" id="stat-avg-time">
+                    <span class="result-stat-value">0s</span>
+                    <span class="result-stat-label">Avg. Time</span>
+                </div>
+            </div>
+
+            <div class="results-breakdown" id="results-breakdown"></div>
+
+            <div class="leaderboard-submit" id="leaderboard-submit">
+                <label for="submit-name">Your Name</label>
+                <input type="text" id="submit-name" placeholder="Enter your name" autocomplete="name">
+                <button id="submit-score-btn">Submit Score</button>
+            </div>
+
+            <button id="play-again-btn">Play Again</button>
+        </section>
+
+        <!-- Explorer View -->
+        <section id="explorer" class="view">
+            <h2>State Explorer</h2>
+
+            <div class="explorer-search">
+                <input type="search" id="explorer-search" placeholder="Search states and union territories..." aria-label="Search states and union territories">
+            </div>
+
+            <div class="states-grid" id="states-grid"></div>
+
+            <div class="state-modal hidden" id="state-modal">
+                <div class="modal-overlay"></div>
+                <div class="modal-content">
+                    <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+                    <div class="modal-body" id="modal-body"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaderboard View -->
+        <section id="leaderboard" class="view">
+            <h2>Leaderboard</h2>
+
+            <div class="leaderboard-tabs">
+                <button class="tab-btn active" data-mode="classic">🎯 Classic</button>
+                <button class="tab-btn" data-mode="rapid">⚡ Rapid</button>
+            </div>
+
+            <div class="leaderboard-table-container">
+                <table id="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Score</th>
+                            <th>Time</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                        <!-- Leaderboard entries populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Real-time Active Scoreboard Sidebar -->
+    <aside class="active-players-panel hidden" id="active-players-panel">
+        <div class="panel-header">
+            <h3>🟢 Live Players</h3>
+            <span class="pulse-dot"></span>
+            <button class="panel-close-btn" id="panel-close-btn" aria-label="Close scoreboard">&times;</button>
+        </div>
+        <div class="panel-body" id="active-players-list">
+            <!-- Active players populated by WebSocket -->
+        </div>
+    </aside>
+
+    <div class="scoreboard-overlay hidden" id="scoreboard-overlay"></div>
+    <button id="live-scoreboard-toggle" class="live-scoreboard-toggle hidden" aria-label="Toggle live scoreboard">
+        <span class="indicator-dot"></span> Live Scores
+    </button>
+
+    <!-- Global Elements -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <div class="sr-only" id="aria-announcer" aria-live="polite" role="status"></div>
+
+    <div class="loading-overlay hidden" id="loading-overlay">
+        <div class="spinner">
+            <div class="spinner-dot"></div>
+            <div class="spinner-dot"></div>
+            <div class="spinner-dot"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <p>Made with ❤️ for India | Which State Am I? &copy; 2026</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
